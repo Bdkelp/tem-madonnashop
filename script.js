@@ -44,43 +44,64 @@ function displayStoreHours() {
     
     hoursElements.forEach(element => {
         if (element) {
-            element.innerHTML = generateHoursHTML(todayName);
+            // Clear existing content
+            element.textContent = '';
+            // Append the safe DOM fragment
+            element.appendChild(generateHoursHTML(todayName));
         }
     });
 }
 
-// Generate hours HTML
+// Generate hours HTML using safe DOM methods
 function generateHoursHTML(today) {
-    let html = '';
+    const fragment = document.createDocumentFragment();
     
     Object.entries(storeHours).forEach(([day, hours]) => {
         const isToday = day.toLowerCase() === today;
-        const dayClass = isToday ? 'today' : '';
         
+        // Create hours day container
+        const dayDiv = document.createElement('div');
+        dayDiv.className = isToday ? 'hours-day today' : 'hours-day';
+        
+        // Create day name span
+        const daySpan = document.createElement('span');
+        daySpan.className = 'day';
+        daySpan.textContent = day + ':';
+        
+        // Create time span
+        const timeSpan = document.createElement('span');
         if (hours.closed) {
-            html += `<div class="hours-day ${dayClass}">
-                        <span class="day">${day}:</span> 
-                        <span class="time closed">Closed</span>
-                     </div>`;
+            timeSpan.className = 'time closed';
+            timeSpan.textContent = 'Closed';
         } else {
-            html += `<div class="hours-day ${dayClass}">
-                        <span class="day">${day}:</span> 
-                        <span class="time">${hours.open} - ${hours.close}</span>
-                     </div>`;
+            timeSpan.className = 'time';
+            timeSpan.textContent = `${hours.open} - ${hours.close}`;
         }
+        
+        dayDiv.appendChild(daySpan);
+        dayDiv.appendChild(timeSpan);
+        fragment.appendChild(dayDiv);
     });
     
     // Add today's status
     const todayHours = storeHours[today.charAt(0).toUpperCase() + today.slice(1)];
     if (todayHours) {
+        const statusP = document.createElement('p');
+        const statusStrong = document.createElement('strong');
+        
         if (todayHours.closed) {
-            html += '<p class="today-status closed"><strong>Closed today</strong></p>';
+            statusP.className = 'today-status closed';
+            statusStrong.textContent = 'Closed today';
         } else {
-            html += `<p class="today-status open"><strong>Open today: ${todayHours.open} - ${todayHours.close}</strong></p>`;
+            statusP.className = 'today-status open';
+            statusStrong.textContent = `Open today: ${todayHours.open} - ${todayHours.close}`;
         }
+        
+        statusP.appendChild(statusStrong);
+        fragment.appendChild(statusP);
     }
     
-    return html;
+    return fragment;
 }
 
 // Setup contact form handling
