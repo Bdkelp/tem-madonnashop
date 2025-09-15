@@ -1,0 +1,192 @@
+MASTER PROMPT (paste into Replit AI)
+
+You are a senior frontend engineer and brand-savvy copywriter.
+Goal: Build a small-business website for a Catholic religious goods store with no current site. Prioritize clarity, speed, SEO, and easy edits.
+
+Business Info
+
+Name: The Madonna Shop
+
+Categories: Religious Goods Store · Religious Bookstore · Gift Shop
+
+Address: 5933 Gateway Blvd West, El Paso, TX 79925, United States
+
+Phone: (915) 775-0113
+
+Hours:
+
+Mon: Closed
+
+Tue–Sat: 10:00 AM – 5:00 PM
+
+Sun: Closed
+
+Social: Facebook (no images provided): https://www.facebook.com/p/The-Madonna-Shop-61569876284552/
+
+Reputation: Not yet rated (0 reviews). Build a review capture page with a placeholder “Leave a Google Review” button (we’ll add the final review link later).
+
+Tech & Structure
+
+Prefer Next.js 14 (App Router) + TypeScript. If not available, use clean static HTML/CSS/JS.
+
+File structure:
+
+/app or root pages: index, about, products, contact, reviews, privacy
+
+/public/assets/ for placeholder images (logo.svg, hero.jpg, store.jpg)
+
+robots.txt, sitemap.xml
+
+Styling: Tailwind CSS if possible. If not, a minimal utility CSS with variables.
+
+Design vibe: Clean, reverent, welcoming.
+
+Colors: Navy #1E2A44, Gold #C6A85B, Ivory #FAF7F2, Slate #475569.
+
+Font: System font stack or Google Fonts “Inter” for readability.
+
+Accessibility: Semantic HTML, alt text, proper contrast, focus states, aria labels.
+
+Performance: Lazy-load images, preconnect for fonts, meta tags, Open Graph.
+
+Pages & Content
+1) Home (/)
+
+Hero: headline “Catholic Gifts, Books & Devotional Items in El Paso”
+Subtext: “From rosaries and medals to sacrament gifts and bibles—faithful items for every occasion.”
+Primary CTA: “Call Now” (tel link). Secondary CTA: “Get Directions” (Google Maps link).
+
+Featured sections:
+
+“Popular Items” (Rosaries, Bibles, Medals & Crucifixes, Statues, Sacrament Gifts) with icons/cards.
+
+“Visit Us” block with address, hours, and embedded Google Map.
+
+“Why Shop Here” bullets: Faithful selection · Friendly help · Local & family-oriented.
+
+Footer: address, phone, hours, Facebook link, copyright.
+
+2) About (/about)
+
+Short origin story tone (create tasteful copy): welcoming local Catholic store serving families, parishes, and gift-givers.
+
+Include a photo placeholder and a small FAQ: returns, special orders, gift wrapping (placeholder “ask in store”).
+
+3) Products (/products)
+
+Grid of categories (cards):
+Bibles · Rosaries · Medals & Crucifixes · Statues · Sacrament Gifts (Baptism/First Communion/Confirmation) · Devotional Books · Candles · Holy Cards.
+
+Each card has short copy + “Ask About Availability” linking to /contact.
+
+4) Reviews (/reviews)
+
+Intro: “Your feedback helps other families find faithful gifts.”
+
+Buttons: “Leave a Google Review” (placeholder #), “Call Us” (tel link), “Get Directions” (Google Maps link).
+
+Include a downloadable QR code image that points to the same placeholder review URL; store it as /public/assets/review-qr.png and link for print. (Use a placeholder image; we’ll replace the URL later.)
+
+5) Contact (/contact)
+
+Contact card with address, click-to-call phone, hours.
+
+Simple contact form: name, email, phone, message.
+
+For now, POST to a placeholder endpoint and show a success toast.
+
+Keep form logic decoupled so we can later swap to Hexona/GoHighLevel webhook easily (comment instructions in code).
+
+Map embed for the address.
+
+Add a “Call Now” and “Get Directions” button at top.
+
+6) Privacy (/privacy)
+
+Simple privacy page (no tracking beyond basic analytics; data only used to respond to inquiries; no selling of data).
+
+Header / Nav
+
+Logo (placeholder text logo “The Madonna Shop”).
+
+Nav links: Home, About, Products, Reviews, Contact.
+
+Sticky top bar with quick actions: “Call” and “Directions”.
+
+Footer
+
+Address, phone (click-to-call), hours summary, social link (Facebook), small site credit, year auto-updating.
+
+SEO & Meta
+
+Title & meta descriptions per page (unique, keyword-aware for “Religious Goods Store El Paso”, “Catholic Gifts El Paso”).
+
+Open Graph + Twitter Card.
+
+JSON-LD as a LocalBusiness (or Store/BookStore) with:
+
+name, address, geo (approx via the address), telephone, openingHoursSpecification, sameAs (Facebook), url (placeholder), image (placeholder), priceRange: “$”.
+
+robots.txt allowing all.
+
+sitemap.xml with all routes.
+
+Components
+
+Hours component rendering a weekly schedule; if today is closed, show “Closed today”; otherwise show open/close times.
+
+Map component using an iframe to Google Maps with the address.
+
+CTA Buttons consistent styling (primary/secondary).
+
+Card component for product categories.
+
+Copywriting (use this verbatim where helpful)
+
+Hero H1: “Catholic Gifts, Books & Devotional Items in El Paso”
+
+Subhead: “From rosaries and medals to sacrament gifts and bibles—faithful items for every occasion.”
+
+Why Shop Here bullets:
+
+“Thoughtfully curated Catholic gifts and books”
+
+“Friendly, attentive help for every occasion”
+
+“Local and family-oriented service”
+
+Visit blurb: “We’re just off Gateway Blvd West. Stop in Tuesday–Saturday 10 AM–5 PM.”
+
+CTAs (reuse across site)
+
+Primary: Call Now → tel:+19157750113
+
+Secondary: Get Directions → Google Maps query for the full street address.
+
+Reviews page: Leave a Google Review → placeholder # (comment a TODO to insert the real review link later)
+
+Extras
+
+Include a /admin-notes.md explaining how to:
+
+Replace the placeholder review link with the real Google review URL.
+
+Swap the contact form POST to a Hexona/GoHighLevel webhook later.
+
+Replace placeholder images and logo.
+
+Include basic analytics placeholder (commented out).
+
+Add 404 page with a friendly message and links back to Home/Contact.
+
+Delivery
+
+Produce fully working pages with clean, well-commented code.
+
+Ensure mobile-first responsiveness.
+
+No external images required—use tasteful placeholders.
+
+Provide a short README with: install, run, build, and how to deploy to Netlify/Vercel.
+
+Ship with valid HTML, accessible landmarks, and Lighthouse-friendly structure.
