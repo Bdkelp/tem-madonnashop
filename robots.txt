@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://themadonnashop.com/sitemap.xml
+
+# Allow search engines to crawl all pages
+# This supports SEO for Catholic religious goods store in El Paso
