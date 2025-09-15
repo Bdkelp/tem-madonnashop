@@ -333,14 +333,61 @@ a:hover {
 
 /* Page Hero (for internal pages) */
 .page-hero {
-    background-color: var(--light-gray);
-    padding: var(--spacing-xl) 0;
+    background: linear-gradient(135deg, rgba(30, 42, 68, 0.75) 0%, rgba(71, 85, 105, 0.75) 100%), var(--light-gray);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    padding: var(--spacing-xxl) 0;
     text-align: center;
-    border-bottom: 1px solid var(--border-color);
+    color: var(--white);
+    min-height: 40vh;
+    display: flex;
+    align-items: center;
+}
+
+.page-hero .container {
+    width: 100%;
 }
 
 .page-hero h1 {
     margin-bottom: var(--spacing-sm);
+    color: var(--white);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.page-hero p {
+    color: var(--white);
+    opacity: 0.9;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Page-specific hero backgrounds */
+.about-page .page-hero {
+    background-image: linear-gradient(135deg, rgba(30, 42, 68, 0.75) 0%, rgba(71, 85, 105, 0.75) 100%), url('assets/about-hero.jpg');
+}
+
+.products-page .page-hero {
+    background-image: linear-gradient(135deg, rgba(30, 42, 68, 0.75) 0%, rgba(71, 85, 105, 0.75) 100%), url('assets/products-hero.jpg');
+}
+
+.contact-page .page-hero {
+    background-image: linear-gradient(135deg, rgba(30, 42, 68, 0.75) 0%, rgba(71, 85, 105, 0.75) 100%), url('assets/contact-hero.jpg');
+}
+
+.reviews-page .page-hero {
+    background-image: linear-gradient(135deg, rgba(30, 42, 68, 0.75) 0%, rgba(71, 85, 105, 0.75) 100%), url('assets/reviews-hero.jpg');
+}
+
+.privacy-page .page-hero {
+    background-image: linear-gradient(135deg, rgba(30, 42, 68, 0.75) 0%, rgba(71, 85, 105, 0.75) 100%), url('assets/privacy-hero.jpg');
+}
+
+@media (max-width: 767px) {
+    .page-hero {
+        background-attachment: scroll;
+        min-height: 30vh;
+        padding: var(--spacing-lg) 0;
+    }
 }
 
 /* Sections */
